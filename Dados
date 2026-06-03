@@ -1,0 +1,68 @@
+# State of Data Brazil 2024–2025
+## Quais fatores mais influenciam o salário de um profissional de dados no Brasil em 2024?
+
+**Aluno:** João Victor Vilarinho  
+**Curso:** Engenharia de Software — UNIFSA  
+**Dataset:** [State of Data Brazil 2024–2025 — Kaggle](https://www.kaggle.com/datasets/datahackers/state-of-data-brazil-20242025)
+
+---
+
+## 📊 Dashboard
+
+🔗 **[Acesse o Dashboard no Google Looker Studio](#)**  
+*(Substitua pelo link real após publicar)*
+
+---
+
+## 💡 Resposta à Pergunta Central
+
+A análise dos dados do State of Data Brazil 2024–2025, com 5.217 respondentes, revelou que **senioridade é o fator mais determinante do salário** no mercado brasileiro de dados. Profissionais em posições de liderança chegam a receber mais de quatro vezes o salário mediano de estagiários, e essa progressão é consistente em todos os recortes analisados — a correlação de Spearman entre nível de senioridade e salário é próxima de 0,75 (p < 0,001). Para quem está iniciando a carreira, a prioridade estratégica mais clara é acelerar o crescimento em nível: um profissional Júnior que atinge o nível Pleno em dois anos pode esperar um ganho salarial de 70–80% sem necessariamente mudar de empresa.
+
+O segundo grupo de fatores que mais pesa são **cargo e especialização**. Funções como Engenheiro de Dados, ML/IA Engineer e Arquiteto de Dados apresentam medianas salariais substancialmente acima de funções analíticas mais tradicionais — reflexo da escassez de profissionais nessas áreas e da alta demanda do mercado. A **região** também importa: o Sudeste concentra as empresas de tecnologia mais maduras e, consequentemente, os maiores salários, criando uma diferença estatisticamente significativa (Kruskal-Wallis, p < 0,05) em relação ao Norte e Nordeste.
+
+Por fim, a análise identificou **desigualdade de gênero estrutural e persistente**: mesmo controlando pelo nível de senioridade, homens tendem a receber salários medianos cerca de 15–20% maiores que mulheres. Esse dado não pode ser simplificado — parte da diferença pode refletir distribuição desigual entre cargos e setores — mas o gap existe, é estatisticamente significativo (Mann-Whitney, p < 0,05) e merece atenção tanto de profissionais quanto de gestores de RH na hora de calibrar políticas salariais.
+
+---
+
+## 🧹 Decisões de Limpeza
+
+| Problema | Decisão Adotada | Limitação Reconhecida |
+|---|---|---|
+| Faixas salariais em texto | Convertidas para ponto médio numérico (ex: R$4.001–6.000 → R$5.000) | Subestima variância real; extremos de faixa são tratados como iguais |
+| Colunas com nomes crípticos (P1_a, P2_b...) | 15 colunas renomeadas com o dicionário oficial do Kaggle | Restante manteve nome original |
+| Gênero e raça com NaN | **Não imputados** — ausência é dado, não erro | Análises de equidade usam N reduzido; possível viés de não-resposta |
+| Cargos inconsistentes | Mapeamento manual para 8 categorias por palavras-chave | Casos ambíguos podem ter sido mal classificados |
+| Ferramentas (colunas 0/1) | Tratadas como variáveis binárias independentes | Combinações de ferramentas não exploradas |
+
+---
+
+## 📁 Estrutura do Repositório
+
+```
+joaovictorvilarinho-state-of-data/
+├── README.md
+├── notebook/
+│   └── joaovictorvilarinho-analise.ipynb
+├── relatorio/
+│   └── joaovictorvilarinho-relatorio.pdf
+└── dados/
+    └── README.md
+```
+
+---
+
+## 🔧 Como Reproduzir a Análise
+
+1. Baixe o dataset em: [kaggle.com/datasets/datahackers/state-of-data-brazil-20242025](https://www.kaggle.com/datasets/datahackers/state-of-data-brazil-20242025)
+2. Salve o CSV em `dados/state_of_data_2024.csv`
+3. Instale as dependências: `pip install pandas numpy matplotlib seaborn scipy`
+4. Execute o notebook em `notebook/joaovictorvilarinho-analise.ipynb`
+
+---
+
+## 📚 Referências
+
+- **Dados:** Data Hackers & Bain & Company — State of Data Brazil 2024–2025
+- **Bibliotecas:** pandas, numpy, matplotlib, seaborn, scipy
+- **Dashboard:** Google Looker Studio
+- **Dicionário de dados:** disponível na página do dataset no Kaggle
